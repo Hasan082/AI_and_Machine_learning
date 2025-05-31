@@ -7,7 +7,8 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 
 # Read the airline data into pandas dataframe
-spacex_df = pd.read_csv("E:\\AI_and_Machine_learning\\machien_learning\\Applied Data Science Capstone\spacex_launch_dash.csv")
+csv_url = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DS0321EN-SkillsNetwork/datasets/spacex_launch_dash.csv"
+spacex_df = pd.read_csv(csv_url)
 max_payload = spacex_df['Payload Mass (kg)'].max()
 min_payload = spacex_df['Payload Mass (kg)'].min()
 
@@ -53,7 +54,7 @@ app.layout = html.Div(children=[
 
 
 
-# (2) Paste the callback function **here** (below the layout)
+# Task 2
 @app.callback(
     Output(component_id='success-pie-chart', component_property='figure'),
     Input(component_id='site-dropdown', component_property='value')
@@ -79,6 +80,36 @@ def get_pie_chart(entered_site):
 
 # TASK 4:
 # Add a callback function for `site-dropdown` and `payload-slider` as inputs, `success-payload-scatter-chart` as output
+@app.callback(
+    Output(component_id='success-payload-scatter-chart', component_property='figure'),
+    [Input(component_id='site-dropdown', component_property='value'),
+     Input(component_id='payload-slider', component_property='value')]
+)
+def get_scatter_chart(entered_site, payload_range):
+    filtered_df = spacex_df[
+        (spacex_df['Payload Mass (kg)'] >= payload_range[0]) &
+        (spacex_df['Payload Mass (kg)'] <= payload_range[1])
+    ]
+
+    if entered_site == 'ALL':
+        fig = px.scatter(
+            filtered_df,
+            x='Payload Mass (kg)',
+            y='class',
+            color='Booster Version Category',
+            title='Correlation between Payload and Success for All Sites'
+        )
+    else:
+        site_df = filtered_df[filtered_df['Launch Site'] == entered_site]
+        fig = px.scatter(
+            site_df,
+            x='Payload Mass (kg)',
+            y='class',
+            color='Booster Version Category',
+            title=f'Correlation between Payload and Success for {entered_site}'
+        )
+
+    return fig
 
 
 # Run the app
