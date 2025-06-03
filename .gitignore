@@ -4,6 +4,8 @@
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
+myenv
+
 # IPython
 profile_default/
 ipython_config.py
