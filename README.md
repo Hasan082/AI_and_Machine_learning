@@ -2,7 +2,7 @@
 
 ## Machine Learning
 ### Applied Data Science Capstone
-### Classification and Regression]
+### Classification and Regression
 * Decision Trees
 ### Regression
 * Linear Regression
