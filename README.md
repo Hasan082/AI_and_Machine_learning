@@ -7,3 +7,4 @@
 ### Regression
 * Linear Regression
 * Multiple Linear Regression
+### Supervised and Unsupervised
