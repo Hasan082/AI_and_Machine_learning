@@ -10,5 +10,6 @@
 ### Supervised and Unsupervised
 * Predicting Building Energy Efficiency supervised
 * Vehicle Clustering Unsupervised Learning
-* 
+* Building a Decision Tree to Predict Customer Churn
+* Neural Network
 
