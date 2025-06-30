@@ -4,6 +4,7 @@
 ### Applied Data Science Capstone
 ### Classification and Regression
 * Decision Trees
+* Regression Trees
 ### Regression
 * Linear Regression
 * Multiple Linear Regression
