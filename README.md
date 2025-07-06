@@ -8,6 +8,9 @@
 ### Regression
 * Linear Regression
 * Multiple Linear Regression
+* Regression Trees Taxi Tip
+* Credit Card Fraud Detection with Decision Trees and_SVM
+* Comparing Random Forest and XGBoost modelling performance
 ### Supervised and Unsupervised
 * Predicting Building Energy Efficiency supervised
 * Vehicle Clustering Unsupervised Learning
